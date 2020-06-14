@@ -1,0 +1,124 @@
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<!--Anchor Pane-->
+<AnchorPane fx:controller="sample.Controllers.HomeController" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="375.0" prefWidth="700.0" style="-fx-background-color: #006B70; -fx-background-radius: 10;"
+            xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<!--    childrens -->
+    <children>
+        <Pane layoutY="75.0" prefHeight="570.0" prefWidth="539.0">
+            <children>
+                <Label layoutX="50.0" layoutY="35.0" text="Select Image" textFill="#ddd9d9">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+
+                <TextField fx:id="path" layoutX="40.0" layoutY="70.0" prefHeight="34.0" prefWidth="240.0"
+                           style="-fx-border-color: #249bbf; -fx-background-color: #062b3a; -fx-background-insets: 0; -fx-text-fill: white "
+                           styleClass="text-input" stylesheets="@Styles/style.css"/>
+                <Button fx:id="BrowsButton" layoutX="270" layoutY="70" mnemonicParsing="true" prefHeight="34.0"
+                        prefWidth="108.0" style="-fx-background-color:
+                        #bdbbc0;" text="BROWSE" textFill="#252525" onAction="#handleBrowseButtonAction"/>
+                <Separator layoutX="55.0" layoutY="15.0" prefHeight="3.0" prefWidth="583.0"/>
+                <ComboBox disable="true" fx:id="enhancementCombo" layoutX="405.0" layoutY="70.0" prefWidth="240.0"
+                          prefHeight="34.0" promptText="choose" style="-fx-background-color:#bdbbc0;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Histogram Equalization"/>
+                            <String fx:value="Zoom In"/>
+                            <String fx:value="Zoom Out"/>
+                            <String fx:value="Brightness"/>
+                            <String fx:value="Darkness"/>
+                            <String fx:value="Contrast"/>
+                            <String fx:value="Negative"/>
+                            <String fx:value="Threshold"/>
+                            <String fx:value="Rotation"/>
+                            <String fx:value="Flip"/>
+                            <String fx:value="Log Transformation"/>
+                            <String fx:value="Power Transformation"/>
+                            <String fx:value="Blur"/>
+                            <String fx:value="Gaussian Blur"/>
+                            <String fx:value="Median Blur"/>
+                            <String fx:value="Low Pass Filter"/>
+                            <String fx:value="Text Detection"/>
+                            <String fx:value="Face Detection"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label layoutX="400.0" layoutY="35.0" text="Select Enhancement Method" textFill="#ddd9d9">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="10.0" layoutY="120.0" text="Value" textFill="#ddd9d9">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <Slider fx:id="mySlider"
+                        disable="true"
+                        blockIncrement="1.0"
+                        prefWidth="583.0" layoutX="55.0" layoutY="120.0"
+                        majorTickUnit="1.0" max="10.0"
+                        minorTickCount="0" prefHeight="14.0" showTickLabels="true" showTickMarks="true"
+                        snapToTicks="true"/>
+
+
+                <Label layoutX="488.0" layoutY="150.0" text="Angle" textFill="#ddd9d9">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <CheckBox selected="true" disable="true" fx:id="copulativeBox" layoutX="305.0" layoutY="145.0"
+                          text="cumulative" style="-fx-text-fill: white"/>
+                <TextField disable="true" fx:id="angleTextField"
+                           prefWidth="150" prefHeight="34" layoutY="180.0" layoutX="488" promptText="Enter Angle"
+                />
+                <Button fx:id="imgDetailBtn" disable="true" layoutX="50.0" layoutY="170.0" mnemonicParsing="false"
+                        prefHeight="34.0"
+                        prefWidth="220.0"
+                        style="-fx-background-color: forestgreen; -fx-background-radius: 5;  -fx-text-fill: white"
+                        onAction="#showImageDetailsButtonAction" text="Show Image Details" textFill="#24b2d6"
+                />
+
+                <Button fx:id="processBtn" disable="true" layoutX="285.0" layoutY="170.0" mnemonicParsing="false"
+                        prefHeight="34.0"
+                        prefWidth="120.0"
+                        style="-fx-background-color: forestgreen; -fx-background-radius: 5;  -fx-text-fill: white"
+                        onAction="#ProcessAction" text="Process" textFill="#24b2d6"
+                />
+                <Button disable="true" fx:id="reloadButton" layoutX="285.0" layoutY="210.0" mnemonicParsing="false"
+                        prefHeight="34.0"
+                        prefWidth="120.0"
+                        style="-fx-background-color: chocolate; -fx-background-radius: 5; -fx-text-fill: white"
+                        onAction="#handleReloadButtonAction" text="Reload" textFill="#24b2d6"
+                />
+                <Button fx:id="closeButton" layoutX="285.0" layoutY="250.0" mnemonicParsing="false" prefHeight="34.0"
+                        prefWidth="120.0"
+                        style="-fx-background-color: #ff0000; -fx-background-radius: 5; -fx-text-fill: white"
+                        text="Cancel"
+                        textFill="#252525"
+                        onAction="#handleCancelButtonAction"/>
+
+
+                <Label layoutX="420.0" layoutY="260.0" text="To Dr Abdelmoneam Fouda" textFill="#BC8B00">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Label layoutX="200.0" layoutY="30.0" text="Pattern -  Image Processing" textFill="#ddd9d9">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
